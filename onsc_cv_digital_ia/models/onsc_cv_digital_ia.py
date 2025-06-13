@@ -71,9 +71,8 @@ class ONSCCVDigitalImport(models.Model):
                 self.mobile_phone = limpiar_prefijo_uy(personal.get('mobile_phone'))
                 self.cv_birthdate = personal.get('birth_date', {})
                 self.user_linkedIn = personal.get('linkedin', {})
-                self.professional_resume = personal.get('summary', {})
-                cv_emissor_country_id
-                self. = self.env['res.country'].search(
+                self.professional_resume = personal.get('summary', {})                
+                self.cv_emissor_country_id = self.env['res.country'].search(
                     [('name', 'ilike', personal.get('birth_country', '')[:5])],
                     limit=1)
 
