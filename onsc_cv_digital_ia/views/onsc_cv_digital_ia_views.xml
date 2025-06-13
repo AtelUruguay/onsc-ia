@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    <record id="view_onsc_import_cv_tree"</field>-->
+    <!--        <field name="model"onsc.import.cv</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <tree>-->
+    <!--                <field name="name_file"/>-->
+    <!--                <field name="file"/>-->
+    <!--            </tree>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <record id="view_onsc_import_cv_form" model="ir.ui.view">
+        <field name="name">onsc.import.cv.form</field>
+        <field name="model">onsc.import.cv</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name_file" invisible="1"/>
+                        <field name="file" filename="name_file"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_import_cv" model="ir.actions.act_window">
+        <field name="name">CVs</field>
+        <field name="res_model">onsc.import.cv</field>
+        <field name="view_mode">form</field>
+         <field name="target">new</field>
+    </record>
+
+
+<!--    <menuitem id="onsc_import_root_cv_menu"-->
+<!--              name="Importación  CV"-->
+<!--              parent="onsc_cv_digital.onsc_cv_root_menu"-->
+<!--              sequence="3"/>-->
+
+<!--    <menuitem id="onsc_import_cv_menu"-->
+<!--              name="Importar  CV"-->
+<!--              action="action_import_cv"-->
+<!--              parent="onsc_import_root_cv_menu"-->
+<!--              sequence="1"/>-->
+
+    <record id="onsc_cv_digital_import_form" model="ir.ui.view">
+        <field name="name">onsc.cv.digital.import.form</field>
+        <field name="model">onsc.cv.digital</field>
+        <field name="inherit_id" ref="onsc_cv_digital.onsc_cv_digital_form"/>
+        <field name="arch" type="xml">
+            <field name="cv_emissor_country_id" position="before">
+                <field name="name_file_import" invisible="1"/>
+                <field name="file_import" filename="name_file_import"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
